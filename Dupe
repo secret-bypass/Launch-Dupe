@@ -1,0 +1,87 @@
+-- Coloque este script em StarterGui > LocalScript
+
+-- Criação da ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "LaunchDupeUI"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Frame principal
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 400, 0, 200)
+mainFrame.Position = UDim2.new(0.5, -200, 0.5, -100)
+mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+mainFrame.BorderSizePixel = 0
+mainFrame.Parent = screenGui
+
+-- Título
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 40)
+title.BackgroundTransparency = 1
+title.Text = "Launch Dupe"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.SourceSansBold
+title.TextSize = 26
+title.Parent = mainFrame
+
+-- Subtítulo (Key System)
+local subtitle = Instance.new("TextLabel")
+subtitle.Size = UDim2.new(1, 0, 0, 25)
+subtitle.Position = UDim2.new(0, 0, 0.2, 0)
+subtitle.BackgroundTransparency = 1
+subtitle.Text = "Key System"
+subtitle.TextColor3 = Color3.fromRGB(200, 200, 200)
+subtitle.Font = Enum.Font.SourceSans
+subtitle.TextSize = 20
+subtitle.Parent = mainFrame
+
+-- Caixa de Texto
+local textBox = Instance.new("TextBox")
+textBox.Size = UDim2.new(0.85, 0, 0, 35)
+textBox.Position = UDim2.new(0.075, 0, 0.45, 0)
+textBox.PlaceholderText = "Insert key here..."
+textBox.Text = ""
+textBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+textBox.Font = Enum.Font.SourceSans
+textBox.TextSize = 18
+textBox.Parent = mainFrame
+
+-- Botão Get Key
+local getKeyBtn = Instance.new("TextButton")
+getKeyBtn.Size = UDim2.new(0.4, 0, 0, 35)
+getKeyBtn.Position = UDim2.new(0.075, 0, 0.75, 0)
+getKeyBtn.Text = "Get Key"
+getKeyBtn.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+getKeyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+getKeyBtn.Font = Enum.Font.SourceSansBold
+getKeyBtn.TextSize = 20
+getKeyBtn.Parent = mainFrame
+
+-- Botão Verify Key
+local verifyKeyBtn = Instance.new("TextButton")
+verifyKeyBtn.Size = UDim2.new(0.4, 0, 0, 35)
+verifyKeyBtn.Position = UDim2.new(0.525, 0, 0.75, 0)
+verifyKeyBtn.Text = "Verify Key"
+verifyKeyBtn.BackgroundColor3 = Color3.fromRGB(255, 140, 0)
+verifyKeyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+verifyKeyBtn.Font = Enum.Font.SourceSansBold
+verifyKeyBtn.TextSize = 20
+verifyKeyBtn.Parent = mainFrame
+
+-- Função Get Key
+getKeyBtn.MouseButton1Click:Connect(function()
+    -- Opção 1: Roblox normal (coloca o texto na caixa)
+    textBox.Text = "test"
+    
+    -- Opção 2: Executores externos (copia direto pro clipboard)
+    pcall(function()
+        setclipboard("test")
+    end)
+
+    print("Get Key clicado! Test foi inserido/copied.")
+end)
+
+-- Função Verify Key
+verifyKeyBtn.MouseButton1Click:Connect(function()
+    print("Chave inserida:", textBox.Text)
+end)
