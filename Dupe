@@ -71,7 +71,7 @@ verifyKeyBtn.Parent = mainFrame
 -- Função Get Key
 getKeyBtn.MouseButton1Click:Connect(function()
     -- Opção 1: Roblox normal (coloca o texto na caixa)
-    textBox.Text = "https://famous-marigold-2a3213.netlify.app/"
+    textBox.Text = "https://teal-gnome-20c558.netlify.app/"
     
     -- Opção 2: Executores externos (copia direto pro clipboard)
     pcall(function()
